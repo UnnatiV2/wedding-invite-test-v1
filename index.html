@@ -398,8 +398,8 @@
 
   .carousel-wrapper{overflow:hidden;position:relative;margin-bottom:18px;}
   .carousel-track{display:flex;gap:14px;width:max-content;}
-  .carousel-track.left{animation:scrollLeft 40s linear infinite;}
-  .carousel-track.right{animation:scrollRight 50s linear infinite;}
+  .carousel-track.left{animation:scrollLeft 30s linear infinite;}
+  .carousel-track.right{animation:scrollRight 40s linear infinite;}
   .carousel-wrapper:hover .carousel-track{animation-play-state:paused;}
 
   .carousel-item{flex:0 0 auto;width:220px;height:155px;border:1px solid rgba(201,168,76,0.3);overflow:hidden;transition:transform 0.4s ease,box-shadow 0.4s ease;}
@@ -875,6 +875,39 @@ background:url('closing.jpg') center/cover no-repeat;
   transition: all 0.3s ease;
 }
 
+.scratch-burst{
+  position:absolute;
+  inset:0;
+  border-radius:8px;
+  pointer-events:none;
+
+  background: radial-gradient(circle,
+    rgba(255,255,255,0.9) 0%,
+    rgba(255,215,120,0.6) 25%,
+    rgba(201,168,76,0.3) 45%,
+    transparent 70%
+  );
+
+  opacity:0;
+  transform:scale(0.6);
+  animation:burstReveal 0.7s ease forwards;
+}
+
+@keyframes burstReveal{
+  0%{
+    opacity:0;
+    transform:scale(0.6);
+  }
+  40%{
+    opacity:1;
+    transform:scale(1.05);
+  }
+  100%{
+    opacity:0;
+    transform:scale(1.3);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1057,51 +1090,50 @@ background:url('closing.jpg') center/cover no-repeat;
 
     <div class="carousel-wrapper">
       <div class="carousel-track left">
-        <div class="carousel-item"><img src="1.JPG" alt=""></div>
-        <div class="carousel-item"><img src="2.JPG" alt=""></div>
-        <div class="carousel-item"><img src="3.JPG" alt=""></div>
-        <div class="carousel-item"><img src="4.JPG" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?wedding&1" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romance&2" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?engagement&3" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?bride&4" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?groom&5" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?indian-wedding&6" alt=""></div>
-        <div class="carousel-item"><img src="1.JPG" alt=""></div>
-        <div class="carousel-item"><img src="2.JPG" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?wedding&3" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romance&4" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?engagement&5" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?bride&6" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?groom&7" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?indian-wedding&8" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?prewedding&9" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romantic&10" alt=""></div>
+             <!-- ORIGINAL SET -->
+        <div class="carousel-item"><img src="webp/01.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/02.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/03.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/04.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/05.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/06.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/08.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/09.webp" alt=""></div>
+         <!-- 🔁 EXACT SAME SET AGAIN -->
+       <div class="carousel-item"><img src="webp/01.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/02.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/03.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/04.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/05.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/06.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/08.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/09.webp" alt=""></div>
+         
+      
       </div>
     </div>
 
     <div class="carousel-wrapper">
       <div class="carousel-track right">
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?couple&11" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?love&12" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?wedding&13" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romance&14" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?engagement&15" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?bride&16" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?groom&17" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?indian-wedding&18" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?prewedding&19" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romantic&20" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?couple&11" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?love&12" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?wedding&13" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romance&14" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?engagement&15" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?bride&16" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?groom&17" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?indian-wedding&18" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?prewedding&19" alt=""></div>
-        <div class="carousel-item"><img src="https://source.unsplash.com/random/400x300?romantic&20" alt=""></div>
+        <!-- ORIGINAL SET -->
+        <div class="carousel-item"><img src="webp/a.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/b.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/c.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/d.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/e.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/f.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/g.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/h.webp" alt=""></div>
+       
+        <!-- 🔁 EXACT SAME SET AGAIN -->
+        <div class="carousel-item"><img src="webp/a.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/b.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/c.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/d.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/e.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/f.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/g.webp" alt=""></div>
+        <div class="carousel-item"><img src="webp/h.webp" alt=""></div>
       </div>
     </div>
   </section>
@@ -1440,58 +1472,148 @@ document.body.style.overflow='hidden';
 const canvas = document.getElementById("scratchCanvas");
 const ctx = canvas.getContext("2d");
 
-function resizeCanvas(){
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+// Track last position for smooth line drawing
+let lastX = null;
+let lastY = null;
+let isDrawing = false;
+let revealed = false;
 
-  // scratch layer (silver/gold)
+function initCanvas() {
+  // Set canvas pixel dimensions to match its CSS size
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width || canvas.offsetWidth;
+  canvas.height = rect.height || canvas.offsetHeight;
+
+  // Draw gold scratch layer
+  ctx.globalCompositeOperation = "source-over";
   ctx.fillStyle = "#c0a060";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // texture effect
-  ctx.fillStyle = "rgba(255,255,255,0.2)";
-  for(let i=0;i<80;i++){
+  // Subtle metallic texture
+  for (let i = 0; i < 120; i++) {
+    ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.18})`;
     ctx.beginPath();
     ctx.arc(
-      Math.random()*canvas.width,
-      Math.random()*canvas.height,
-      Math.random()*3,
-      0,Math.PI*2
+      Math.random() * canvas.width,
+      Math.random() * canvas.height,
+      Math.random() * 3,
+      0, Math.PI * 2
     );
     ctx.fill();
   }
+
+  // Draw hint text on the canvas layer itself
+  ctx.fillStyle = "rgba(139,105,20,0.7)";
+  ctx.font = `bold ${Math.floor(canvas.height * 0.13)}px Cinzel, serif`;
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText("✦ Scratch Here ✦", canvas.width / 2, canvas.height / 2);
 }
 
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+// Run once canvas is laid out
+setTimeout(initCanvas, 50);
 
-let isDrawing = false;
-
-function scratch(x,y){
+function scratch(x, y) {
   ctx.globalCompositeOperation = "destination-out";
+  ctx.lineWidth = 34;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
   ctx.beginPath();
-  ctx.arc(x,y,18,0,Math.PI*2);
-  ctx.fill();
+  if (lastX === null) {
+    // First point — draw a dot
+    ctx.arc(x, y, 17, 0, Math.PI * 2);
+    ctx.fill();
+  } else {
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+
+  lastX = x;
+  lastY = y;
 }
 
-// mouse
-canvas.addEventListener("mousedown", ()=> isDrawing=true);
-canvas.addEventListener("mouseup", ()=> isDrawing=false);
-canvas.addEventListener("mousemove",(e)=>{
-  if(!isDrawing) return;
+function getScratchedPercent() {
+  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  let cleared = 0;
+  for (let i = 3; i < pixels.length; i += 4) {
+    if (pixels[i] === 0) cleared++;
+  }
+  return cleared / (pixels.length / 4);
+}
+
+function checkReveal() {
+  if (revealed) return;
+  const percent = getScratchedPercent();
+  if (percent > 0.40) {
+    revealed = true;
+    revealCard();
+  }
+}
+
+// ── MOUSE EVENTS ──
+canvas.addEventListener("mousedown", (e) => {
+  isDrawing = true;
+  lastX = null;
+  lastY = null;
   const rect = canvas.getBoundingClientRect();
   scratch(e.clientX - rect.left, e.clientY - rect.top);
 });
 
-// touch
-canvas.addEventListener("touchstart", ()=> isDrawing=true);
-canvas.addEventListener("touchend", ()=> isDrawing=false);
-canvas.addEventListener("touchmove",(e)=>{
+canvas.addEventListener("mouseup", () => {
+  isDrawing = false;
+  lastX = null;
+  lastY = null;
+  checkReveal();
+});
+
+canvas.addEventListener("mouseleave", () => {
+  if (isDrawing) {
+    isDrawing = false;
+    lastX = null;
+    lastY = null;
+    checkReveal();
+  }
+});
+
+canvas.addEventListener("mousemove", (e) => {
+  if (!isDrawing) return;
+  const rect = canvas.getBoundingClientRect();
+  scratch(e.clientX - rect.left, e.clientY - rect.top);
+});
+
+// ── TOUCH EVENTS ──
+canvas.addEventListener("touchstart", (e) => {
+  e.preventDefault();
+  isDrawing = true;
+  lastX = null;
+  lastY = null;
+  const rect = canvas.getBoundingClientRect();
+  const touch = e.touches[0];
+  scratch(touch.clientX - rect.left, touch.clientY - rect.top);
+}, { passive: false });
+
+canvas.addEventListener("touchend", () => {
+  isDrawing = false;
+  lastX = null;
+  lastY = null;
+  checkReveal();
+});
+
+canvas.addEventListener("touchmove", (e) => {
+  if (!isDrawing) return;
   e.preventDefault();
   const rect = canvas.getBoundingClientRect();
   const touch = e.touches[0];
   scratch(touch.clientX - rect.left, touch.clientY - rect.top);
-});
+}, { passive: false });
+
+
+
+
+
+
 
 // get the music button element
 const btn = document.getElementById("music-btn");
@@ -1518,6 +1640,28 @@ btn.addEventListener("click", (e) => {
   }
 });
 
+//Add premium reveal animation
+function revealCard() {
+  // stop further drawing
+  canvas.style.pointerEvents = "none";
+
+  // smooth fade + scale
+  canvas.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  canvas.style.opacity = "0";
+  canvas.style.transform = "scale(1.05)";
+
+  // ✨ glow burst effect
+  const card = canvas.parentElement;
+
+  const burst = document.createElement("div");
+  burst.className = "scratch-burst";
+  card.appendChild(burst);
+
+  setTimeout(() => {
+    canvas.style.display = "none";
+    burst.remove();
+  }, 700);
+}
 
 </script>
 </body>
