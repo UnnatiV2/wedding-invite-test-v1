@@ -22,28 +22,37 @@
     --sage:#7a9e7e;
     --maroon:#6b1a1a;
 
-    --fs-eyebrow:     clamp(9px,  2.5vw, 11px);
-    --fs-script-lg:   clamp(72px, 20vw, 140px);
-    --fs-script-md:   clamp(40px, 11vw, 72px);
-    --fs-ampersand:   clamp(22px, 6vw,  42px);
-    --fs-hero-date:   clamp(11px, 3vw,  14px);
-    --fs-invite-msg:  clamp(16px, 4.5vw, 20px);
-    --fs-section-h2:  clamp(28px, 8vw,  52px);
-    --fs-card-h2:     clamp(24px, 6.5vw, 40px);
-    --fs-body:        clamp(15px, 4.2vw, 18px);
-    --fs-detail-val:  clamp(22px, 6vw,  36px);
-    --fs-detail-sub:  clamp(13px, 3.5vw, 16px);
-    --fs-event-title: clamp(22px, 6vw,  32px);
-    --fs-event-meta:  clamp(13px, 3.5vw, 16px);
-    --fs-venue-h2:    clamp(30px, 8.5vw, 56px);
+--fs-eyebrow:     clamp(12px,  3.2vw, 16px);
   
-   
-    --fs-contact:     clamp(18px, 5.5vw, 28px);
-    --fs-countdown-n: clamp(26px, 7.5vw, 52px);
-    --fs-countdown-w: clamp(7px,  2vw,   9px);
-    --fs-quote:       clamp(17px, 4.8vw, 30px);
-    --fs-badge:       clamp(22px, 5.5vw, 32px);
-    --fs-icon:        clamp(24px, 6vw,   34px);
+  --fs-script-lg:   clamp(80px, 22vw, 155px);
+  --fs-script-md:   clamp(46px, 13vw, 82px);
+  --fs-ampersand:   clamp(26px, 7vw, 48px);
+
+  --fs-hero-date:   clamp(13px, 3.5vw, 16px);
+  --fs-invite-msg:  clamp(20px, 6vw, 28px);
+
+  --fs-section-h2:  clamp(32px, 9vw, 60px);
+  --fs-card-h2:     clamp(28px, 7.5vw, 46px);
+
+  --fs-body:        clamp(17px, 4.8vw, 20px);
+
+  --fs-detail-val:  clamp(26px, 7vw, 42px);
+  --fs-detail-sub:  clamp(15px, 4vw, 18px);
+
+  --fs-event-title: clamp(26px, 7vw, 36px);
+  --fs-event-meta:  clamp(15px, 4vw, 18px);
+
+  --fs-venue-h2:    clamp(34px, 9.5vw, 64px);
+
+  --fs-contact:     clamp(20px, 6vw, 32px);
+
+  --fs-countdown-n: clamp(30px, 8.5vw, 60px);
+  --fs-countdown-w: clamp(8px,  2.2vw, 10px);
+
+  --fs-quote:       clamp(20px, 5.5vw, 34px);
+
+  --fs-badge:       clamp(26px, 6vw, 36px);
+  --fs-icon:        clamp(28px, 6.5vw, 38px);
   }
 
   html{scroll-behavior:smooth;}
@@ -53,7 +62,7 @@
     color:var(--deep);
     overflow-x:hidden;
     cursor:pointer;
-    font-size:16px;
+    font-size:18px;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
@@ -274,13 +283,21 @@
     }
 
 
-  .hero::after{
+.hero::after{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(253,246,232,0.35); /* warm cream overlay */
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(253,246,232,0.33),
+      rgba(253,246,232,0.75)
+    ),
+    rgba(253,246,232,0.25);
+
   z-index:1;
-  }
+}
 
   .hero > *{
   position:relative;
@@ -310,10 +327,13 @@
     font-family:'Cinzel',serif;
     font-size:var(--fs-eyebrow);
     letter-spacing:0.48em;
-    color:var(--gold-dark);
+   color:rgba(92, 68, 7, 0.95);
     margin-bottom:clamp(20px,5vh,40px);
     opacity:0;animation:fade-up 1s ease forwards 0.3s;
     word-spacing:0.1em;
+    text-shadow:
+    0 2px 6px rgba(255,255,255,0.6),
+    0 1px 3px rgba(0,0,0,0.25);
   }
 
   .names-block{
@@ -362,20 +382,39 @@
     font-size:var(--fs-invite-msg);
     font-style:italic;
     font-weight:300;
-    color:rgba(26,14,5,0.68);
+    color:rgba(0, 0, 0, 0.815);
     max-width:340px;
     line-height:1.75;
     opacity:0;animation:fade-up 1s ease forwards 0.9s;
     letter-spacing:0.015em;
   }
 
-  .scroll-arrow{
-    position:absolute;bottom:clamp(22px,5vh,42px);left:50%;
-    transform:translateX(-50%);
-    color:var(--gold);font-size:22px;
-    opacity:0;
-    animation:fade-up 1s ease forwards 1.5s, bounce 2.2s ease-in-out 1.5s infinite;
-  }
+.scroll-arrow{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+
+  font-size:35px;
+  color:var(--gold);
+
+  opacity:1;
+
+  animation:
+    fade-up 1s ease forwards 1.5s,
+    bounce 1.6s ease-in-out infinite,
+    glowPulse 2s ease-in-out infinite;
+}
+
+
+
+@keyframes glowPulse{
+  0%,100%{text-shadow:0 0 0 rgba(201,168,76,0);}
+  50%{text-shadow:0 0 18px rgba(201,168,76,0.8);}
+}
+
+
+
   @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(10px);}}
   @keyframes fade-up{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
@@ -397,21 +436,68 @@
   }
 
   .carousel-wrapper{overflow:hidden;position:relative;margin-bottom:18px;}
-  .carousel-track{display:flex;gap:14px;width:max-content;}
-  .carousel-track.left{animation:scrollLeft 30s linear infinite;}
-  .carousel-track.right{animation:scrollRight 40s linear infinite;}
+
+
+/* 🔥 ADD THIS EXACTLY HERE */
+.carousel-wrapper::before,
+.carousel-wrapper::after{
+  content:'';
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:80px;
+  z-index:2;
+  pointer-events:none; /* ✅ IMPORTANT */
+}
+
+.carousel-wrapper::before{
+  left:0;
+  background:linear-gradient(to right, #1a0e05, transparent);
+}
+
+.carousel-wrapper::after{
+  right:0;
+  background:linear-gradient(to left, #1a0e05, transparent);
+}
+
+
+
+  .carousel-track{display:flex;gap:14px;width:max-content; align-items:center;}
+  .carousel-track.left{animation:scrollLeft 20s linear infinite;}
+  .carousel-track.right{animation:scrollRight 20s linear infinite;}
   .carousel-wrapper:hover .carousel-track{animation-play-state:paused;}
 
-  .carousel-item{flex:0 0 auto;width:220px;height:155px;border:1px solid rgba(201,168,76,0.3);overflow:hidden;transition:transform 0.4s ease,box-shadow 0.4s ease;}
+ .carousel-item{
+  flex:0 0 auto;
+  width:280px;
+  height:200px;
+
+   border:1px solid rgba(201,168,76,0.25);
+  border-radius:12px; /* ✅ ADD HERE */
+
+  overflow:hidden;
+
+   box-shadow:0 6px 18px rgba(0,0,0,0.15);
+
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+  .carousel-item.portrait{
+  width:200px;     /* narrower */
+  height:260px;    /* taller */
+}
+  
+  
   .carousel-item img{width:100%;height:100%;object-fit:cover;filter:sepia(0.2) contrast(1.05);transition:transform 0.5s ease;}
-  .carousel-item:hover{transform:translateY(-8px) scale(1.05);box-shadow:0 20px 50px rgba(0,0,0,0.4);}
+  .carousel-item:hover{transform:translateY(-6px) scale(1.04);box-shadow:0 12px 28px rgba(0,0,0,0.22);}
   .carousel-item:hover img{transform:scale(1.1);}
 
   @keyframes scrollLeft{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   @keyframes scrollRight{from{transform:translateX(-50%);}to{transform:translateX(0);}}
 
   @media(max-width:480px){
-    .carousel-item{width:185px;height:130px;}
+    .carousel-item{width:240px;height:170px;}
   }
 
   /* ─── COUNTDOWN ─── */
@@ -420,7 +506,7 @@
     padding:clamp(52px,11vh,90px) clamp(20px,5vw,48px);
     text-align:center;position:relative;overflow:hidden;
   }
-  .countdown-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 70%);animation:glow-pulse 4s ease-in-out infinite;}
+  .countdown-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 80%);animation:glow-pulse 4s ease-in-out infinite;}
   .countdown-ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(90vw,500px);height:min(90vw,500px);border-radius:50%;border:1px solid rgba(201,168,76,0.06);pointer-events:none;}
   .countdown-ring::before{content:'';position:absolute;inset:20px;border-radius:50%;border:1px solid rgba(201,168,76,0.04);}
 
@@ -508,16 +594,33 @@
     margin-bottom:clamp(14px,3vh,22px);
   }
 
-  .message-card{
-    max-width:480px;margin:0 auto;
-    background:var(--parchment);
-    border:1px solid rgba(201,168,76,0.3);border-radius:2px;
-    padding:clamp(30px,6vh,52px) clamp(22px,5vw,40px);
-    position:relative;
-    box-shadow:inset 0 0 40px rgba(201,168,76,0.05),0 4px 40px rgba(26,14,5,0.1),0 0 0 4px rgba(201,168,76,0.05),0 0 0 8px rgba(201,168,76,0.03);
-    transition:transform 0.4s ease,box-shadow 0.4s ease;
-  }
-  .message-card:hover{transform:perspective(800px) rotateX(2deg) translateZ(4px);box-shadow:inset 0 0 40px rgba(201,168,76,0.08),0 20px 60px rgba(26,14,5,0.15),0 0 0 4px rgba(201,168,76,0.08);}
+.message-card{
+  max-width:480px;
+  margin:0 auto;
+
+  background:linear-gradient(145deg,#f8ecd2,#f1dfb8);
+  border:1px solid rgba(201,168,76,0.4);
+  border-radius:10px;
+
+  padding:clamp(34px,6vh,56px) clamp(24px,5vw,44px);
+
+  position:relative;
+
+  box-shadow:
+    0 12px 40px rgba(0,0,0,0.12),
+    inset 0 0 25px rgba(201,168,76,0.08);
+
+  transition:all 0.4s ease;
+}
+
+.message-card:hover{
+  transform:translateY(-6px) scale(1.015);
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.18),
+    0 5px 15px rgba(201,168,76,0.15);
+}
+
+
   .message-card .flr{position:absolute;width:20px;height:20px;color:var(--gold);font-size:13px;opacity:0.5;}
   .message-card .flr-tl{top:10px;left:10px;}
   .message-card .flr-tr{top:10px;right:10px;}
@@ -562,35 +665,64 @@
 
 /* INDIVIDUAL BOX */
 .family-box{
-  background:rgba(255,255,255,0.35);
+  position:relative;              /* 🔥 IMPORTANT */
+  overflow:hidden;                /* 🔥 IMPORTANT */
+
+  background:rgba(255,255,255,0.25);  /* 👈 lighter */
+
   border:1px solid rgba(201,168,76,0.35);
-  padding:18px 16px;
-  border-radius:6px;
-  position:relative;
-  transition:all 0.3s ease;
+  border-radius:12px;
+
+  padding:20px 18px;
+
+  backdrop-filter:blur(12px);     /* 👈 stronger blur */
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.1),
+    inset 0 0 25px rgba(201,168,76,0.08);
+
+  transition:all 0.4s ease;
+}
+
+.family-box::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+
+  border:1px solid rgba(255,255,255,0.35);
+
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,0.25),
+    transparent 40%
+  );
+
+  opacity:0.6;
+  pointer-events:none;
 }
 
 .family-box:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 18px 40px rgba(0,0,0,0.12);
 }
 
 .family-box h3{
   font-family:'Cinzel',serif;
-  font-size:12px;
-  letter-spacing:0.25em;
-  color:var(--gold-dark);
-  margin-bottom:10px;
+  font-size:clamp(11px,2.8vw,13px);
+  letter-spacing:0.32em;
+  color:var(--gold);
+  margin-bottom:12px;
 }
 
 .family-box p{
-   font-size:clamp(16px, 4vw, 18px);   /* ⬆ bigger text */
-  line-height:1.9;                    /* ⬆ more breathing space */
-  color:rgba(26,14,5,0.85);
-   text-align:center;   /* keep centered */
-  max-width:320px;     /* prevents long stretching */
-  margin:0 auto;       /* keeps it centered nicely */           /* ⬆ slightly darker */
+  font-size:clamp(15px,4vw,17px);
+  line-height:2.1;   /* 🔥 THIS is key */
+  letter-spacing:0.2px;
+  color:rgba(26,14,5,0.8);
 }
+
+
 .family-box p br + br{
   content:"";
   display:block;
@@ -663,7 +795,12 @@
  
   /* ─── VENUE ─── */
   .venue-section{
-    background:var(--cream);
+    background:radial-gradient(
+  ellipse at center,
+  #fdf6e8 0%,
+  #f3e3c2 60%,
+  #ead7b0 100%
+);
     padding:clamp(56px,11vh,96px) clamp(20px,5vw,52px);
     text-align:center;
   }
@@ -718,7 +855,7 @@
   margin:0; /* ❌ remove spacing */
 
   /* ✅ RECTANGLE HEIGHT */
-  height:42vh; /* adjust if needed */
+  height:38vh; /* adjust if needed */
   max-height:520px;
 
   overflow:hidden;
@@ -743,7 +880,7 @@ background:url('closing.jpg') center/cover no-repeat;
 
   .closing-quote{
     font-family:'Cormorant Garamond',serif;
-    font-size:var(--fs-quote);
+     font-size: clamp(16px, 5vw, 26px);
     font-style:italic;font-weight:300;
     color:var(--cream);
     max-width:360px;margin:0 auto clamp(22px,4.5vh,38px);
@@ -752,7 +889,7 @@ background:url('closing.jpg') center/cover no-repeat;
   }
   .closing-names{
     font-family:'Great Vibes',cursive;
-    font-size:var(--fs-script-md);
+  font-size: clamp(34px, 9vw, 60px);
     color:var(--gold-light);
     line-height:1.2;
     text-shadow:0 0 60px rgba(201,168,76,0.3);
@@ -775,7 +912,7 @@ background:url('closing.jpg') center/cover no-repeat;
   align-items:center;
   justify-content:center;
   z-index:2;
-  padding:20px;
+  padding:30px;
 }
 
 .closing-quote{
@@ -793,7 +930,12 @@ background:url('closing.jpg') center/cover no-repeat;
 }
 
   /* ─── SCROLL REVEAL ─── */
-  .reveal{opacity:0;transform:translateY(36px);transition:opacity 0.9s ease,transform 0.9s ease;}
+  .reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity 1.6s cubic-bezier(0.22,1,0.36,1),
+             transform 1.6s cubic-bezier(0.22,1,0.36,1);
+}
   .reveal.visible{opacity:1;transform:translateY(0);}
   .reveal-delay-1{transition-delay:0.15s;}
   .reveal-delay-2{transition-delay:0.3s;}
@@ -818,13 +960,25 @@ background:url('closing.jpg') center/cover no-repeat;
 
 .scratch-card{
   position:relative;
-  width:260px;
-  height:110px;
-  margin:20px auto;
-  border-radius:8px;
+  width:280px;
+  height:120px;
+  margin:24px auto;
+  border-radius:14px;
   overflow:hidden;
+
+  background:linear-gradient(145deg,#1a0e05,#2a1608);
+  border:1px solid rgba(201,168,76,0.35);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(201,168,76,0.08);
+
+  transition:transform 0.4s ease;
 }
 
+.scratch-card:hover{
+  transform:translateY(-4px);
+}
 .scratch-text{
   position:absolute;
   inset:0;
@@ -832,11 +986,17 @@ background:url('closing.jpg') center/cover no-repeat;
   align-items:center;
   justify-content:center;
   flex-direction:column;
+
   font-family:'Cormorant Garamond',serif;
-  font-size:26px;
+  font-size:29px;
+
   color:#fff;
+
   background:linear-gradient(135deg,#c9a84c,#8b6914);
-  text-align:center;
+
+  letter-spacing:0.5px;
+
+  text-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
 
 .scratch-text span{
@@ -849,6 +1009,71 @@ background:url('closing.jpg') center/cover no-repeat;
   inset:0;
   z-index:2;
 }
+
+.scratch-card::after{
+  content:'';
+  position:absolute;
+  inset:-20px; /* 🔥 OUTSIDE the box */
+  border-radius:20px;
+  pointer-events:none;
+
+  background:radial-gradient(circle,
+    rgba(255,215,120,0.35) 0%,
+    rgba(201,168,76,0.2) 30%,
+    transparent 70%
+  );
+
+  opacity:0;
+  transition:opacity 0.5s ease;
+}
+
+.scratch-card.revealed::after{
+  opacity:1;
+}
+
+
+
+
+.scratch-sparkle{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.8) 0%, transparent 30%),
+    radial-gradient(circle at 70% 60%, rgba(255,215,120,0.6) 0%, transparent 35%),
+    radial-gradient(circle at 50% 50%, rgba(201,168,76,0.4) 0%, transparent 50%);
+
+  opacity:0;
+  animation:sparkleReveal 1s ease forwards;
+}
+
+@keyframes sparkleReveal{
+  0%{opacity:0; transform:scale(0.8);}
+  50%{opacity:1;}
+  100%{opacity:0; transform:scale(1.2);}
+}
+
+
+
+
+@keyframes burstReveal{
+  0%{
+    opacity:0;
+    transform:scale(0.6);
+  }
+  40%{
+    opacity:1;
+    transform:scale(1.05);
+  }
+  100%{
+    opacity:0;
+    transform:scale(1.3);
+  }
+}
+
+
+
 
 #music-btn{
   position:fixed;
@@ -875,37 +1100,63 @@ background:url('closing.jpg') center/cover no-repeat;
   transition: all 0.3s ease;
 }
 
-.scratch-burst{
-  position:absolute;
-  inset:0;
-  border-radius:8px;
-  pointer-events:none;
-
-  background: radial-gradient(circle,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,215,120,0.6) 25%,
-    rgba(201,168,76,0.3) 45%,
-    transparent 70%
-  );
-
-  opacity:0;
-  transform:scale(0.6);
-  animation:burstReveal 0.7s ease forwards;
+/* Desigened by section */
+.credit-section{
+  text-align:center;
+  padding:20px 10px;
+  font-family:'Cinzel',serif;
+  font-size:12px;
+  letter-spacing:0.25em;
+  color:rgba(255, 207, 73, 0.705);
+  background:var(--deep);
 }
 
-@keyframes burstReveal{
-  0%{
-    opacity:0;
-    transform:scale(0.6);
-  }
-  40%{
-    opacity:1;
-    transform:scale(1.05);
-  }
-  100%{
-    opacity:0;
-    transform:scale(1.3);
-  }
+.credit-section a{
+  color:var(--gold-light);
+  text-decoration:none;
+  position:relative;
+
+  font-size:14px;
+  letter-spacing:0.15em;
+  font-weight:500;
+
+  text-shadow:0 0 8px rgba(201,168,76,0.4);
+
+  transition:all 0.3s ease;
+
+  animation: nameGlow 3s ease-in-out infinite; /* 👈 HERE */
+}
+
+/* underline animation */
+.credit-section a::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  width:0%;
+  height:1px;
+  background:var(--gold-light);
+  transition:width 0.3s ease;
+}
+
+/* ✨ hover = premium shine */
+.credit-section a:hover{
+  color:#fff;
+
+  text-shadow:
+    0 0 12px rgba(201,168,76,0.8),
+    0 0 20px rgba(201,168,76,0.4);
+
+  transform:translateY(-1px);
+}
+
+.credit-section a:hover::after{
+  width:100%;
+}
+
+@keyframes nameGlow{
+  0%,100%{text-shadow:0 0 6px rgba(201,168,76,0.3);}
+  50%{text-shadow:0 0 14px rgba(201,168,76,0.6);}
 }
 
 </style>
@@ -1080,7 +1331,9 @@ background:url('closing.jpg') center/cover no-repeat;
       Two souls, one journey —<br><em>a love written in the stars.</em>
     </p>
 
-    <div class="scroll-arrow">❧</div>
+    <div class="scroll-arrow">↓</div>
+    
+
   </section>
 
   <!-- PHOTO CAROUSEL -->
@@ -1089,53 +1342,86 @@ background:url('closing.jpg') center/cover no-repeat;
     <h2 class="photo-heading">Our Story</h2>
 
     <div class="carousel-wrapper">
-      <div class="carousel-track left">
-             <!-- ORIGINAL SET -->
-        <div class="carousel-item"><img src="01.webp" alt=""></div>
-        <div class="carousel-item"><img src="02.webp" alt=""></div>
-        <div class="carousel-item"><img src="03.webp" alt=""></div>
-        <div class="carousel-item"><img src="04.webp" alt=""></div>
-        <div class="carousel-item"><img src="05.webp" alt=""></div>
-        <div class="carousel-item"><img src="06.webp" alt=""></div>
-        <div class="carousel-item"><img src="08.webp" alt=""></div>
-        <div class="carousel-item"><img src="09.webp" alt=""></div>
-         <!-- 🔁 EXACT SAME SET AGAIN -->
-      <div class="carousel-item"><img src="01.webp" alt=""></div>
-        <div class="carousel-item"><img src="02.webp" alt=""></div>
-        <div class="carousel-item"><img src="03.webp" alt=""></div>
-        <div class="carousel-item"><img src="04.webp" alt=""></div>
-        <div class="carousel-item"><img src="05.webp" alt=""></div>
-        <div class="carousel-item"><img src="06.webp" alt=""></div>
-        <div class="carousel-item"><img src="08.webp" alt=""></div>
-        <div class="carousel-item"><img src="09.webp" alt=""></div>
-         
-      
-      </div>
-    </div>
+  <div class="carousel-track right">
 
-    <div class="carousel-wrapper">
-      <div class="carousel-track right">
-        <!-- ORIGINAL SET -->
-        <div class="carousel-item"><img src="a.webp" alt=""></div>
-        <div class="carousel-item"><img src="b.webp" alt=""></div>
-        <div class="carousel-item"><img src="c.webp" alt=""></div>
-        <div class="carousel-item"><img src="d.webp" alt=""></div>
-        <div class="carousel-item"><img src="e.webp" alt=""></div>
-        <div class="carousel-item"><img src="f.webp" alt=""></div>
-        <div class="carousel-item"><img src="g.webp" alt=""></div>
-        <div class="carousel-item"><img src="h.webp" alt=""></div>
-       
-        <!-- 🔁 EXACT SAME SET AGAIN -->
-        <div class="carousel-item"><img src="a.webp" alt=""></div>
-        <div class="carousel-item"><img src="b.webp" alt=""></div>
-        <div class="carousel-item"><img src="c.webp" alt=""></div>
-        <div class="carousel-item"><img src="d.webp" alt=""></div>
-        <div class="carousel-item"><img src="e.webp" alt=""></div>
-        <div class="carousel-item"><img src="f.webp" alt=""></div>
-        <div class="carousel-item"><img src="g.webp" alt=""></div>
-        <div class="carousel-item"><img src="h.webp" alt=""></div>
-      </div>
-    </div>
+     <!-- ORIGINAL SET -->
+    <div class="carousel-item"><img src="compressed/01.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/02.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/03.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/04.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/05.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/06.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/07.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/08.webp"></div>
+
+     <div class="carousel-item"><img src="compressed/09.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/010.webp"></div>
+
+      <div class="carousel-item"><img src="compressed/011.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/012.webp"></div> 
+
+     <div class="carousel-item"><img src="compressed/013.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/014.webp"></div> 
+
+    <!-- 🔁 EXACT DUPLICATE -->
+    <div class="carousel-item"><img src="compressed/01.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/02.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/03.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/04.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/05.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/06.webp"></div>
+
+    <div class="carousel-item"><img src="compressed/07.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/08.webp"></div>
+
+      <div class="carousel-item"><img src="compressed/09.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/010.webp"></div>
+
+      <div class="carousel-item"><img src="compressed/011.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/012.webp"></div>
+
+     <div class="carousel-item"><img src="compressed/013.webp"></div>
+    <div class="carousel-item portrait"><img src="compressed/014.webp"></div> 
+
+
+  </div>
+</div>
+
+<!-- commenting this section 
+<div class="carousel-wrapper">
+  <div class="carousel-track left">
+
+   
+    <div class="carousel-item"><img src="webp/a.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/b.webp"></div>
+    <div class="carousel-item"><img src="webp/c.webp"></div>
+    <div class="carousel-item"><img src="webp/d.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/e.webp"></div>
+    <div class="carousel-item"><img src="webp/f.webp"></div>
+    <div class="carousel-item"><img src="webp/g.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/h.webp"></div>
+
+   
+    <div class="carousel-item"><img src="webp/a.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/b.webp"></div>
+    <div class="carousel-item"><img src="webp/c.webp"></div>
+    <div class="carousel-item"><img src="webp/d.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/e.webp"></div>
+    <div class="carousel-item"><img src="webp/f.webp"></div>
+    <div class="carousel-item"><img src="webp/g.webp"></div>
+    <div class="carousel-item portrait"><img src="webp/h.webp"></div>
+
+  </div>
+</div>
+  
+-->
+
+
   </section>
 
   <!-- COUNTDOWN -->
@@ -1154,10 +1440,10 @@ background:url('closing.jpg') center/cover no-repeat;
   </section>
 
   <!-- MESSAGE -->
-  <section class="message-section reveal">
-  <span class="section-label">— WITH LOVE & BLESSINGS —</span>
+  <section class="message-section ">
+  <span class="section-label reveal">— WITH LOVE & BLESSINGS —</span>
 
-  <div class="message-card">
+  <div class="message-card reveal reveal-delay-1">
     <span class="flr flr-tl">✦</span>
     <span class="flr flr-tr">✦</span>
     <span class="flr flr-bl">✦</span>
@@ -1165,7 +1451,7 @@ background:url('closing.jpg') center/cover no-repeat;
 
     
 
-    <p class="message-body">
+    <p class="message-body reveal-delay-2">
       With great joy and happiness, the Ladhaniya Family warmly invites you
       to celebrate the wedding of
 
@@ -1177,7 +1463,7 @@ background:url('closing.jpg') center/cover no-repeat;
     </p>
 
     <!-- FAMILY SECTION -->
-    <div class="family-container">
+    <div class="family-container reveal reveal-delay-3">
 
       <!-- GROOM -->
       <div class="family-box groom">
@@ -1221,7 +1507,7 @@ background:url('closing.jpg') center/cover no-repeat;
           <span class="detail-icon">✨</span>
           <span class="detail-label">CEREMONY BEGINS</span>
           <div class="detail-value">8:00 PM</div>
-          <span class="detail-sub">Muhurtham — Auspicious time</span>
+          <span class="detail-sub">Auspicious time</span>
       </div>
       
     </div>
@@ -1335,6 +1621,16 @@ background:url('closing.jpg') center/cover no-repeat;
   <source src="Love Me Like You Do - Instrumental _ Bgm.mp3" type="audio/mpeg">
 </audio>
 <button id="music-btn">🔇</button>
+
+
+<div class="credit-section">
+ Designed with love by 
+
+  <<a href="https://www.linkedin.com/in/unnaati" target="_blank">
+    Unnati Goel
+  </a>
+</div>
+
 <script>
 // ─── STARS ───
 const starsEl=document.getElementById('stars');
@@ -1357,7 +1653,7 @@ function spawnPetals(){
       left:${Math.random()*110-5}%;
       background:${col};
       --d:${5+Math.random()*7}s;
-      --delay:${Math.random()*10}s;
+      --delay:${Math.random()*6}s;
       --drift:${drift}px;
       width:${5+Math.random()*7}px;
       height:${9+Math.random()*9}px;
@@ -1507,7 +1803,7 @@ function initCanvas() {
   ctx.font = `bold ${Math.floor(canvas.height * 0.13)}px Cinzel, serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText("✦ Scratch Here ✦", canvas.width / 2, canvas.height / 2);
+  ctx.fillText("Scratch Here ", canvas.width / 2, canvas.height / 2);
 }
 
 // Run once canvas is laid out
@@ -1642,25 +1938,25 @@ btn.addEventListener("click", (e) => {
 
 //Add premium reveal animation
 function revealCard() {
-  // stop further drawing
   canvas.style.pointerEvents = "none";
 
-  // smooth fade + scale
-  canvas.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  canvas.style.transition = "opacity 0.6s ease";
   canvas.style.opacity = "0";
-  canvas.style.transform = "scale(1.05)";
 
-  // ✨ glow burst effect
   const card = canvas.parentElement;
 
-  const burst = document.createElement("div");
-  burst.className = "scratch-burst";
-  card.appendChild(burst);
+  // ✅ add class for outer glow
+  card.classList.add("revealed");
+
+  // ✨ sparkle effect
+  const sparkle = document.createElement("div");
+  sparkle.className = "scratch-sparkle";
+  card.appendChild(sparkle);
 
   setTimeout(() => {
     canvas.style.display = "none";
-    burst.remove();
-  }, 700);
+    sparkle.remove();
+  }, 900);
 }
 
 </script>
